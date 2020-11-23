@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useStateCallback } from 'react';
 import { View } from 'react-native';
 
 import Header from 'src/components/screens/Header';
@@ -34,7 +34,15 @@ const Chat = () => {
     messagesArr.push(msgRow);
     setMessages(messagesArr);
   }, [path]);
-
+  useEffect(() => {
+    if (messages.length > 0) {
+      const lastMessage = messages[messages.length - 1];
+      if (lastMessage.user === 'sender') {
+        checkValidation();
+        setMessage('');
+      }
+    }
+  }, [messages]);
   useEffect(() => {
     (async () => {
       const fetchData = await fetch(Data.URL);
@@ -52,15 +60,12 @@ const Chat = () => {
     return question;
   };
   const sendMessage = () => {
-    const messageArr = [...messages];
-    messageArr.push({ user: 'sender', message: message });
+    const messageArr = [...messages, { user: 'sender', message: message }];
     setMessages(messageArr);
-    checkValidation();
-    setMessage('');
   };
-  const errMessage = (message) => {
-    const messageArr = [...messages];
-    messageArr.push({ user: 'recipient', message: message });
+
+  const errMessage = (msg) => {
+    let messageArr = [...messages, { user: 'recipient', message: msg }];
     setMessages(messageArr);
   };
   const getNewMessageSate = (newMessage) => {
