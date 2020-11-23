@@ -1,8 +1,8 @@
 import React, { useRef } from 'react';
 import { View, Text, ScrollView, KeyboardAvoidingView } from 'react-native';
 
-import Loading from 'src/components/Chat/screens/loading';
-import styles from 'src/components/Chat/styles';
+import Loading from 'src/components/screens/loading';
+import styles from 'src/components/screens/styles';
 
 const Message = (props) => {
   const { messages, customer, loading } = props;

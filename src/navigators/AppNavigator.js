@@ -1,5 +1,5 @@
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
-import Chat from 'src/components/Chat';
+import Chat from 'src/components/screens';
 
 export default createAppContainer(
   createSwitchNavigator(

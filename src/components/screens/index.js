@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { View } from 'react-native';
 
-import Header from 'src/components/Chat/screens/header';
-import Message from 'src/components/Chat/screens/message';
-import Chatbox from 'src/components/Chat/screens/chatbox';
+import Header from 'src/components/screens/header';
+import Message from 'src/components/screens/message';
+import Chatbox from 'src/components/screens/chatbox';
 
 import Data from 'src/constants/data';
 import styles from './styles';

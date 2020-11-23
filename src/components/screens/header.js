@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Image } from 'react-native';
 
-import styles from 'src/components/Chat/styles';
+import styles from 'src/components/screens/styles';
 import { Images } from 'src/theme';
 
 const Header = (props) => {
