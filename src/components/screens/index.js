@@ -26,7 +26,7 @@ const Chat = () => {
       newQuestion = getQuestion(1);
     } else {
       newQuestion = getQuestion(path);
-      messagesArr = messages;
+      messagesArr = [...messages];
     }
     setCurrentQus(newQuestion);
     getNewMessageSate(newQuestion);
@@ -52,14 +52,14 @@ const Chat = () => {
     return question;
   };
   const sendMessage = () => {
-    const messageArr = messages;
+    const messageArr = [...messages];
     messageArr.push({ user: 'sender', message: message });
     setMessages(messageArr);
     checkValidation();
     setMessage('');
   };
   const errMessage = (message) => {
-    const messageArr = messages;
+    const messageArr = [...messages];
     messageArr.push({ user: 'recipient', message: message });
     setMessages(messageArr);
   };
