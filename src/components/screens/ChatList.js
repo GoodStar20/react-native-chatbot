@@ -4,7 +4,7 @@ import { View, Text, ScrollView, KeyboardAvoidingView } from 'react-native';
 import Loading from 'src/components/screens/Loading';
 import styles from 'src/components/screens/styles/ChatListStyle';
 
-const Message = (props) => {
+const ChatList = (props) => {
   const { messages, customer, loading } = props;
   const contentRef = useRef(null);
 
@@ -45,4 +45,4 @@ const Message = (props) => {
   );
 };
 
-export default Message;
+export default ChatList;
