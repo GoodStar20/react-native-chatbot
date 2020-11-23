@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import {
   View,
   KeyboardAvoidingView,
@@ -11,14 +11,7 @@ import styles from 'src/components/screens/styles/ChatboxStyle';
 import { Colors } from 'src/theme';
 
 const Chatbox = (props) => {
-  const { message, setMessage, sendMessage, currentQus } = props;
-  const [pathState, setPathState] = useState(true);
-
-  useEffect(() => {
-    if (typeof currentQus.validation === 'boolean') {
-      setPathState(currentQus.validation);
-    }
-  }, [currentQus]);
+  const { message, setMessage, sendMessage, currentQus, pathState } = props;
 
   return (
     <KeyboardAvoidingView
