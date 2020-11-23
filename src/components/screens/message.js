@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { View, Text, ScrollView, KeyboardAvoidingView } from 'react-native';
 
-import Loading from 'src/components/screens/loading';
+import Loading from 'src/components/screens/Loading';
 import styles from 'src/components/screens/styles';
 
 const Message = (props) => {
