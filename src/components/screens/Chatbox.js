@@ -11,7 +11,7 @@ import styles from 'src/components/screens/styles/ChatboxStyle';
 import { Colors } from 'src/theme';
 
 const Chatbox = (props) => {
-  const { message, setMessage, sendMessage, currentQus, pathState } = props;
+  const { message, setMessage, onSubmit, currentQus, pathState } = props;
 
   return (
     <KeyboardAvoidingView
@@ -32,7 +32,7 @@ const Chatbox = (props) => {
         />
         <TouchableOpacity
           style={styles.sendBtn}
-          onPress={sendMessage}
+          onPress={onSubmit}
           disabled={!pathState}
         >
           <Icon type="Feather" name="send" style={styles.sendIcon} />

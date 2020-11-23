@@ -132,7 +132,7 @@ const Chat = () => {
       <Chatbox
         message={message}
         setMessage={setMessage}
-        sendMessage={sendMessage}
+        onSubmit={sendMessage}
         pathState={pathState}
         currentQus={currentQus}
       />
