@@ -4,10 +4,6 @@ import { Colors } from 'src/theme';
 const deviceHeight = Dimensions.get('window').height;
 
 export default StyleSheet.create({
-  background: {
-    flex: 1,
-    backgroundColor: 'white',
-  },
   messageContainer: {
     bottom: 10,
     flex: 1,

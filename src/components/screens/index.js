@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { View } from 'react-native';
 
 import Header from 'src/components/screens/Header';
-import MessageList from 'src/components/screens/MessageList';
+import ChatList from 'src/components/screens/ChatList';
 import Chatbox from 'src/components/screens/Chatbox';
 
 import Data from 'src/constants/data';
-import styles from './styles/ChatListStyle';
+import styles from './styles/HeaderStyle';
 
 const Chat = () => {
   const customer = 'Elon';
@@ -128,7 +128,7 @@ const Chat = () => {
   return (
     <View style={styles.background}>
       <Header customer={customer} />
-      <MessageList messages={messages} customer={customer} loading={loading} />
+      <ChatList messages={messages} customer={customer} loading={loading} />
       <Chatbox
         message={message}
         setMessage={setMessage}

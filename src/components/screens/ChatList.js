@@ -10,37 +10,34 @@ const ChatList = (props) => {
 
   return (
     <>
-      {loading ? (
-        <Loading />
-      ) : (
-        <KeyboardAvoidingView
-          behavior={Platform.OS == 'ios' ? 'padding' : null}
-          style={styles.messageContainer}
+      {loading && <Loading />}
+      <KeyboardAvoidingView
+        behavior={Platform.OS == 'ios' ? 'padding' : null}
+        style={styles.messageContainer}
+      >
+        <ScrollView
+          style={styles.contentContainer}
+          scrollEnabled={true}
+          ref={contentRef}
+          onContentSizeChange={(contentWidth, contentHeight) => {
+            contentRef.current.scrollToEnd({ animated: true });
+          }}
         >
-          <ScrollView
-            style={styles.contentContainer}
-            scrollEnabled={true}
-            ref={contentRef}
-            onContentSizeChange={(contentWidth, contentHeight) => {
-              contentRef.current.scrollToEnd({ animated: true });
-            }}
-          >
-            <View style={{ flexGrow: 1 }}>
-              {messages?.length > 0 &&
-                messages.map((row, index) => (
-                  <View style={styles.messageRow} key={index}>
-                    {row.user === 'recipient' ? (
-                      <Text style={styles.recipient}>{customer}:</Text>
-                    ) : (
-                      <Text style={styles.sender}>You:</Text>
-                    )}
-                    <Text style={styles.message}>{row.message}</Text>
-                  </View>
-                ))}
-            </View>
-          </ScrollView>
-        </KeyboardAvoidingView>
-      )}
+          <View style={{ flexGrow: 1 }}>
+            {messages?.length > 0 &&
+              messages.map((row, index) => (
+                <View style={styles.messageRow} key={index}>
+                  {row.user === 'recipient' ? (
+                    <Text style={styles.recipient}>{customer}:</Text>
+                  ) : (
+                    <Text style={styles.sender}>You:</Text>
+                  )}
+                  <Text style={styles.message}>{row.message}</Text>
+                </View>
+              ))}
+          </View>
+        </ScrollView>
+      </KeyboardAvoidingView>
     </>
   );
 };

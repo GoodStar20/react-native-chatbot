@@ -4,6 +4,11 @@ import { Colors } from 'src/theme';
 const deviceHeight = Dimensions.get('window').height;
 
 export default StyleSheet.create({
+  background: {
+    flex: 1,
+    backgroundColor: 'white',
+    position: 'relative',
+  },
   header: {
     backgroundColor: Colors.background,
     zIndex: 10,

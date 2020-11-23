@@ -5,9 +5,14 @@ const deviceHeight = Dimensions.get('window').height;
 
 export default StyleSheet.create({
   spinnerBackground: {
-    height: deviceHeight * 0.6,
+    top: deviceHeight * 0.5,
     justifyContent: 'center',
     alignContent: 'center',
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    justifyContent: 'center',
+    zIndex: 1,
   },
   spinnerText: {
     fontSize: 20,
