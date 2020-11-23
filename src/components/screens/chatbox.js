@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 
-import styles from 'src/components/screens/styles';
+import styles from 'src/components/screens/styles/ChatboxStyle';
 import { Colors } from 'src/theme';
 
 const Chatbox = (props) => {

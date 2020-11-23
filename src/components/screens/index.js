@@ -6,7 +6,7 @@ import Message from 'src/components/screens/Message';
 import Chatbox from 'src/components/screens/Chatbox';
 
 import Data from 'src/constants/data';
-import styles from './styles';
+import styles from './styles/ChatListStyle';
 
 const Chat = () => {
   const customer = 'Elon';
@@ -16,6 +16,7 @@ const Chat = () => {
   const [path, setPath] = useState(0);
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState('');
+  const [pathState, setPathState] = useState(true);
 
   useEffect(() => {
     let messagesArr = [];
@@ -23,12 +24,12 @@ const Chat = () => {
     if (path === 1) {
       setMessages([]);
       newQuestion = getQuestion(1);
-      setCurrentQus(newQuestion);
     } else {
       newQuestion = getQuestion(path);
-      setCurrentQus(newQuestion);
       messagesArr = messages;
     }
+    setCurrentQus(newQuestion);
+    getNewMessageSate(newQuestion);
     const msgRow = { user: 'recipient', message: newQuestion.question };
     messagesArr.push(msgRow);
     setMessages(messagesArr);
@@ -61,6 +62,11 @@ const Chat = () => {
     const messageArr = messages;
     messageArr.push({ user: 'recipient', message: message });
     setMessages(messageArr);
+  };
+  const getNewMessageSate = (newMessage) => {
+    if (typeof newMessage.validation === 'boolean') {
+      setPathState(newMessage.validation);
+    }
   };
   const checkValidation = () => {
     const { validation, paths } = currentQus;
@@ -96,6 +102,7 @@ const Chat = () => {
         }
         return;
       case 'boolean':
+        setPathState(validation);
         if (validation) {
           setPath(paths);
         } else {
@@ -126,6 +133,7 @@ const Chat = () => {
         message={message}
         setMessage={setMessage}
         sendMessage={sendMessage}
+        pathState={pathState}
         currentQus={currentQus}
       />
     </View>
